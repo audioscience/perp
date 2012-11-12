@@ -4,7 +4,7 @@
 # ===
 
 ## build configuration, standard gcc + libc:
-CC = gcc
+CC ?= gcc
 CFLAGS = -Wall -Wextra -Wshadow -DNDEBUG -O2
 #CFLAGS = -Wall -Wextra -Wshadow -O2
 

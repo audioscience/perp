@@ -863,10 +863,6 @@ OUTVEC_OBJS=\
 outvec/mk_outvec : outvec/mk_outvec.c
 	$(CC) $(CFLAGS) -o $@ outvec/mk_outvec.c
 
-## generate outvec_STDOUT.h:
-outvec/outvec_STDOUT.h : outvec/mk_outvec
-	./outvec/mk_outvec > outvec/outvec_STDOUT.h
-
 ## outvec:
 outvec_STDERR.o : outvec/outvec_STDERR.c outvec.h
 	$(CC) $(CFLAGS) -c outvec/outvec_STDERR.c
@@ -997,10 +993,6 @@ RLIMIT_OBJS=\
 rlimit/mk_rlimit : rlimit/mk_rlimit.c
 	$(CC) $(CFLAGS) -o $@ rlimit/mk_rlimit.c
 
-## generate rlimit_defs table:
-rlimit/rlimit_defs.c.in : rlimit/mk_rlimit
-	./rlimit/mk_rlimit > rlimit/rlimit_defs.c.in
-
 rlimit.o : rlimit/rlimit.c \
   rlimit/rlimit_defs.c.in \
   rlimit/rlimit_private.h \
@@ -1050,14 +1042,6 @@ SYSSTR_OBJS=\
 ## mysysstr sysno table generator:
 sysstr/mksysstr : sysstr/mksysstr.c
 	$(CC) $(CFLAGS) -o $@ sysstr/mksysstr.c
-
-## generate errno table:
-sysstr/sysstr_errno.c.in : sysstr/mksysstr sysstr.h
-	./sysstr/mksysstr errno > $@
-
-## generate signal table:
-sysstr/sysstr_signo.c.in : sysstr/mksysstr sysstr.h
-	./sysstr/mksysstr signo > $@
 
 sysstr_errno.o : sysstr/sysstr_errno.c \
   sysstr/sysno_lookup.c.in \
