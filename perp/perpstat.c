@@ -183,7 +183,7 @@ main(int argc, char *argv[])
   if(!basedir)
       basedir = getenv("PERP_BASE");
   if(!basedir)
-      basedir = ".";
+      basedir = PERP_BASE_DEFAULT;
 
   if(chdir(basedir) != 0){
       fatal_syserr("fail chdir() to ", basedir);

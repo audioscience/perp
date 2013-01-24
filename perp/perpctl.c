@@ -317,7 +317,7 @@ main(int argc, char *argv[])
   if(basedir == NULL)
       basedir = getenv("PERP_BASE");
   if((basedir == NULL) || (basedir[0] == '\0'))
-      basedir = ".";
+      basedir = PERP_BASE_DEFAULT;
 
   if(chdir(basedir) != 0){
       fatal_syserr("unable to chdir() to ", basedir);
