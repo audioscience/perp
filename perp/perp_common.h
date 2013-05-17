@@ -13,7 +13,7 @@
 
 /* default PERP_BASE directory: */
 #ifndef PERP_BASE_DEFAULT
-#define PERP_BASE_DEFAULT  "/etc/perp"
+#define PERP_BASE_DEFAULT  "/var/etc/perp"
 #endif
 
 /* base service control directory
